@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Bill</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#111;
+color:white;
+padding:30px;
+}
+
+.box{
+max-width:700px;
+margin:auto;
+background:#1b1b1b;
+padding:30px;
+border-radius:20px;
+}
+
+input{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:20px;
+background:gold;
+border:none;
+font-size:18px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+}
+
+.bill{
+margin-top:30px;
+background:white;
+color:black;
+padding:30px;
+border-radius:20px;
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>
+
+🐔 Three Brothers Bill
+
+</h1>
+
+<input type="text" id="name" placeholder="Customer Name">
+
+<input type="text" id="product" placeholder="Product">
+
+<input type="number" id="kg" placeholder="KG">
+
+<input type="number" id="price" placeholder="Price">
+
+<button onclick="generateBill()">
+
+Generate Bill
+
+</button>
+
+<div class="bill" id="bill">
+
+<h2>
+
+Three Brothers Fresh Chicken
+
+</h2>
+
+<hr>
+
+<p id="customer"></p>
+
+<p id="productShow"></p>
+
+<p id="kgShow"></p>
+
+<p id="priceShow"></p>
+
+<h1 id="totalShow"></h1>
+
+</div>
+
+</div>
+
+<script>
+
+function generateBill(){
+
+let name =
+document.getElementById("name").value;
+
+let product =
+document.getElementById("product").value;
+
+let kg =
+document.getElementById("kg").value;
+
+let price =
+document.getElementById("price").value;
+
+let total =
+kg * price;
+
+document.getElementById("bill").style.display="block";
+
+document.getElementById("customer").innerHTML =
+"Customer : " + name;
+
+document.getElementById("productShow").innerHTML =
+"Product : " + product;
+
+document.getElementById("kgShow").innerHTML =
+"KG : " + kg;
+
+document.getElementById("priceShow").innerHTML =
+"Price : ₹" + price;
+
+document.getElementById("totalShow").innerHTML =
+"Total : ₹" + total;
+
+/* SAVE */
+
+let bills =
+JSON.parse(localStorage.getItem("bills")) || [];
+
+bills.push({
+
+name:name,
+
+product:product,
+
+kg:kg,
+
+price:price,
+
+total:total
+
+});
+
+localStorage.setItem("bills",JSON.stringify(bills));
+
+}
+
+</script>
+
+</body>
+
+</html>
