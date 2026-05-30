@@ -1,4 +1,5 @@
 <!-- FILE NAME: premium-bill.html -->
+<!-- MINI THERMAL BILL SYSTEM 😈 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +10,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Three Brothers Premium Bill</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Three Brothers Bill</title>
 
 <style>
 
@@ -19,130 +18,110 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:monospace;
 }
 
 body{
-background:#0b0b0b;
-padding:30px;
+background:#111;
+padding:10px;
 }
 
-/* MAIN BOX */
+/* MAIN */
 
 .main-box{
-max-width:950px;
+max-width:400px;
 margin:auto;
-background:#111;
-padding:40px;
-border-radius:30px;
-box-shadow:0 0 30px rgba(0,0,0,0.5);
+background:#1b1b1b;
+padding:15px;
+border-radius:12px;
 }
 
 /* TITLE */
 
 .main-title{
 text-align:center;
-font-size:55px;
+font-size:24px;
 color:gold;
-margin-bottom:40px;
+margin-bottom:20px;
 }
 
-/* INPUTS */
+/* INPUT */
 
 .input-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
 .input-grid input{
-padding:18px;
+padding:12px;
 border:none;
 outline:none;
-background:#1c1c1c;
-border-radius:15px;
-font-size:17px;
+background:#2a2a2a;
 color:white;
+border-radius:8px;
+font-size:14px;
 }
 
 /* BUTTON */
 
 .generate-btn{
-width:100%;
-margin-top:30px;
-padding:18px;
+margin-top:15px;
+padding:12px;
 border:none;
-border-radius:15px;
 background:gold;
 color:black;
-font-size:20px;
-font-weight:700;
+font-size:15px;
+font-weight:bold;
+border-radius:8px;
 cursor:pointer;
-transition:0.4s;
+width:100%;
 }
 
 .generate-btn:hover{
-transform:translateY(-5px);
-background:white;
+opacity:0.9;
 }
 
 /* BILL */
 
 .bill{
 display:none;
-margin-top:50px;
+margin-top:20px;
 background:white;
 color:black;
-border-radius:25px;
-overflow:hidden;
+width:300px;
+margin-left:auto;
+margin-right:auto;
+padding:15px;
+border-radius:5px;
 }
 
 /* TOP */
 
 .bill-top{
-background:#111;
-padding:35px;
-color:white;
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:20px;
+text-align:center;
+border-bottom:1px dashed #000;
+padding-bottom:10px;
+margin-bottom:10px;
 }
 
 .shop-name{
-font-size:40px;
-font-weight:800;
-color:gold;
+font-size:18px;
+font-weight:bold;
 }
 
 .bill-top p{
-margin-top:8px;
-color:#ddd;
-font-size:15px;
-}
-
-.invoice-box{
-text-align:right;
-}
-
-.invoice-box h2{
-font-size:35px;
-color:gold;
+font-size:11px;
+margin-top:3px;
 }
 
 /* CUSTOMER */
 
 .customer-section{
-padding:35px;
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:20px;
-border-bottom:1px solid #ddd;
-}
-
-.customer-section h3{
-font-size:24px;
+font-size:12px;
+line-height:1.8;
+border-bottom:1px dashed #000;
+padding-bottom:10px;
 margin-bottom:10px;
 }
 
@@ -151,91 +130,73 @@ margin-bottom:10px;
 .bill-table{
 width:100%;
 border-collapse:collapse;
+font-size:11px;
 }
 
 .bill-table th{
-background:#111;
-color:gold;
-padding:18px;
-font-size:17px;
+border-bottom:1px dashed #000;
+padding-bottom:5px;
 }
 
 .bill-table td{
-padding:20px;
+padding-top:8px;
 text-align:center;
-border-bottom:1px solid #ddd;
-font-size:17px;
 }
 
 /* TOTAL */
 
 .total-area{
-padding:35px;
-display:flex;
-justify-content:flex-end;
-}
-
-.total-box{
-width:320px;
-background:#f4f4f4;
-padding:25px;
-border-radius:20px;
+margin-top:10px;
+border-top:1px dashed #000;
+padding-top:10px;
+font-size:13px;
 }
 
 .total-line{
 display:flex;
 justify-content:space-between;
-margin-bottom:18px;
-font-size:20px;
+margin-bottom:6px;
 }
 
 .grand-total{
-font-size:35px;
-font-weight:800;
-color:green;
+font-size:16px;
+font-weight:bold;
 }
 
 /* THANK YOU */
 
 .thankyou{
-padding:40px;
+margin-top:15px;
 text-align:center;
-border-top:2px dashed #aaa;
+border-top:1px dashed #000;
+padding-top:10px;
 }
 
 .thankyou h1{
-font-size:45px;
-}
-
-.thankyou h2{
-font-size:35px;
-margin-top:10px;
-color:gold;
+font-size:18px;
 }
 
 .thankyou p{
-margin-top:10px;
-font-size:18px;
-color:#555;
+font-size:11px;
+margin-top:5px;
 }
 
 /* BUTTONS */
 
 .action-buttons{
-margin-top:30px;
+margin-top:15px;
 display:flex;
-gap:20px;
+flex-direction:column;
+gap:10px;
 }
 
 .action-buttons button{
-flex:1;
-padding:18px;
+padding:12px;
 border:none;
-border-radius:15px;
-font-size:18px;
-font-weight:700;
+border-radius:8px;
+font-size:14px;
+font-weight:bold;
 cursor:pointer;
-transition:0.4s;
 }
 
 .print-btn{
@@ -248,48 +209,28 @@ background:gold;
 color:black;
 }
 
-.action-buttons button:hover{
-transform:translateY(-5px);
-}
+/* PRINT */
 
-/* MOBILE */
-
-@media(max-width:768px){
+@media print{
 
 body{
-padding:15px;
+background:white;
+padding:0;
 }
 
 .main-box{
-padding:20px;
+display:none;
 }
 
-.main-title{
-font-size:35px;
-}
-
-.bill-top{
-flex-direction:column;
-}
-
-.invoice-box{
-text-align:left;
-}
-
-.shop-name{
-font-size:30px;
-}
-
-.customer-section{
-flex-direction:column;
-}
-
-.total-box{
-width:100%;
+.bill{
+display:block;
+width:58mm;
+box-shadow:none;
+padding:5px;
 }
 
 .action-buttons{
-flex-direction:column;
+display:none;
 }
 
 }
@@ -303,7 +244,9 @@ flex-direction:column;
 <div class="main-box">
 
 <h1 class="main-title">
-🐔 PREMIUM BILL SYSTEM
+
+🐔 MINI BILL SYSTEM
+
 </h1>
 
 <!-- INPUT -->
@@ -312,19 +255,17 @@ flex-direction:column;
 
 <input type="text" id="customerName" placeholder="Customer Name">
 
-<input type="text" id="customerPhone" placeholder="Phone Number">
-
 <input type="text" id="productName" placeholder="Product Name">
 
-<input type="number" id="productPrice" placeholder="Price Per KG">
-
 <input type="number" id="productKG" placeholder="Quantity KG">
+
+<input type="number" id="productPrice" placeholder="Price Per KG">
 
 </div>
 
 <button class="generate-btn" onclick="generateBill()">
 
-Generate Premium Bill
+Generate Bill
 
 </button>
 
@@ -336,41 +277,24 @@ Generate Premium Bill
 
 <div class="bill-top">
 
-<div>
-
 <div class="shop-name">
-Three Brothers Fresh Chicken
-</div>
 
-<p>
-📍 Malancha, Bosirhat Road
-</p>
-
-<p>
-📮 Pin Code - 743456
-</p>
-
-<p>
-📞 WhatsApp - 8637575166
-</p>
-
-<p>
-🚚 Home Delivery Available
-</p>
+THREE BROTHERS  
+FRESH CHICKEN
 
 </div>
 
-<div class="invoice-box">
+<p>
+Malancha, Bosirhat Road
+</p>
 
-<h2>
-INVOICE
-</h2>
+<p>
+PIN - 743456
+</p>
 
-<p id="date"></p>
-
-<p id="invoice"></p>
-
-</div>
+<p>
+WhatsApp - 8637575166
+</p>
 
 </div>
 
@@ -378,33 +302,11 @@ INVOICE
 
 <div class="customer-section">
 
-<div>
+<p id="date"></p>
 
-<h3>
-Customer Details
-</h3>
+<p id="invoice"></p>
 
 <p id="showCustomer"></p>
-
-<p id="showPhone"></p>
-
-</div>
-
-<div>
-
-<h3>
-Payment Status
-</h3>
-
-<p>
-✅ Paid Successfully
-</p>
-
-<p>
-💯 Premium Service
-</p>
-
-</div>
 
 </div>
 
@@ -416,13 +318,11 @@ Payment Status
 
 <tr>
 
-<th>Product</th>
+<th>ITEM</th>
 
-<th>Price/KG</th>
+<th>KG</th>
 
-<th>Quantity</th>
-
-<th>Total</th>
+<th>TOTAL</th>
 
 </tr>
 
@@ -433,8 +333,6 @@ Payment Status
 <tr>
 
 <td id="showProduct"></td>
-
-<td id="showPrice"></td>
 
 <td id="showKG"></td>
 
@@ -450,8 +348,6 @@ Payment Status
 
 <div class="total-area">
 
-<div class="total-box">
-
 <div class="total-line">
 
 <span>Subtotal</span>
@@ -462,21 +358,17 @@ Payment Status
 
 <div class="total-line">
 
-<span>Delivery Charge</span>
+<span>Delivery</span>
 
 <span>₹0</span>
 
 </div>
 
-<hr>
-
 <div class="total-line grand-total">
 
-<span>Total</span>
+<span>TOTAL</span>
 
 <span id="grandTotal"></span>
-
-</div>
 
 </div>
 
@@ -491,15 +383,11 @@ Payment Status
 </h1>
 
 <p>
-Thank You For Shopping With
+Thank You For Shopping
 </p>
 
-<h2>
-Three Brothers Fresh Chicken
-</h2>
-
 <p>
-Fresh • Hygienic • Premium Quality Chicken
+Visit Again 😈
 </p>
 
 </div>
@@ -533,110 +421,16 @@ function generateBill(){
 let customer =
 document.getElementById("customerName").value;
 
-let phone =
-document.getElementById("customerPhone").value;
-
 let product =
 document.getElementById("productName").value;
-
-let price =
-parseFloat(document.getElementById("productPrice").value);
 
 let kg =
 parseFloat(document.getElementById("productKG").value);
 
+let price =
+parseFloat(document.getElementById("productPrice").value);
+
 let total =
-price * kg;
+kg * price;
 
-document.getElementById("bill").style.display =
-"block";
-
-let today =
-new Date();
-
-let invoiceNo =
-Math.floor(Math.random()*999999);
-
-document.getElementById("date").innerHTML =
-"📅 Date : " + today.toLocaleDateString();
-
-document.getElementById("invoice").innerHTML =
-"🧾 Invoice ID : #" + invoiceNo;
-
-document.getElementById("showCustomer").innerHTML =
-"👤 " + customer;
-
-document.getElementById("showPhone").innerHTML =
-"📞 " + phone;
-
-document.getElementById("showProduct").innerHTML =
-product;
-
-document.getElementById("showPrice").innerHTML =
-"₹" + price;
-
-document.getElementById("showKG").innerHTML =
-kg + " KG";
-
-document.getElementById("showTotal").innerHTML =
-"₹" + total;
-
-document.getElementById("subtotal").innerHTML =
-"₹" + total;
-
-document.getElementById("grandTotal").innerHTML =
-"₹" + total;
-
-/* SAVE DATA */
-
-let bills =
-JSON.parse(localStorage.getItem("bills")) || [];
-
-bills.push({
-
-customer:customer,
-
-phone:phone,
-
-product:product,
-
-price:price,
-
-kg:kg,
-
-total:total
-
-});
-
-localStorage.setItem("bills",JSON.stringify(bills));
-
-}
-
-/* SAVE BILL */
-
-function saveBill(){
-
-let content =
-document.getElementById("bill").innerHTML;
-
-let blob =
-new Blob([content], {type:"text/html"});
-
-let link =
-document.createElement("a");
-
-link.href =
-URL.createObjectURL(blob);
-
-link.download =
-"ThreeBrothersBill.html";
-
-link.click();
-
-}
-
-</script>
-
-</body>
-
-</html>
+document.getElementById
