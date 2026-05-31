@@ -1,5 +1,5 @@
 <!-- FILE NAME: premium-bill.html -->
-<!-- MINI THERMAL BILL SYSTEM 😈 -->
+<!-- PROFESSIONAL THERMAL BILL 😈 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Three Brothers Bill</title>
+<title>Thermal Bill</title>
 
 <style>
 
@@ -26,26 +26,24 @@ background:#111;
 padding:10px;
 }
 
-/* MAIN */
+/* MAIN BOX */
 
 .main-box{
-max-width:400px;
+max-width:380px;
 margin:auto;
 background:#1b1b1b;
 padding:15px;
-border-radius:12px;
+border-radius:10px;
 }
-
-/* TITLE */
 
 .main-title{
 text-align:center;
-font-size:24px;
 color:gold;
-margin-bottom:20px;
+font-size:22px;
+margin-bottom:15px;
 }
 
-/* INPUT */
+/* INPUTS */
 
 .input-grid{
 display:flex;
@@ -56,11 +54,10 @@ gap:10px;
 .input-grid input{
 padding:12px;
 border:none;
-outline:none;
 background:#2a2a2a;
 color:white;
-border-radius:8px;
-font-size:14px;
+border-radius:6px;
+font-size:13px;
 }
 
 /* BUTTON */
@@ -71,96 +68,69 @@ padding:12px;
 border:none;
 background:gold;
 color:black;
-font-size:15px;
+font-size:14px;
 font-weight:bold;
-border-radius:8px;
+border-radius:6px;
 cursor:pointer;
 width:100%;
-}
-
-.generate-btn:hover{
-opacity:0.9;
 }
 
 /* BILL */
 
 .bill{
 display:none;
-margin-top:20px;
+width:300px;
 background:white;
 color:black;
-width:300px;
-margin-left:auto;
-margin-right:auto;
-padding:15px;
-border-radius:5px;
-}
-
-/* TOP */
-
-.bill-top{
-text-align:center;
-border-bottom:1px dashed #000;
-padding-bottom:10px;
-margin-bottom:10px;
-}
-
-.shop-name{
-font-size:18px;
-font-weight:bold;
-}
-
-.bill-top p{
-font-size:11px;
-margin-top:3px;
-}
-
-/* CUSTOMER */
-
-.customer-section{
+margin:20px auto;
+padding:10px;
 font-size:12px;
-line-height:1.8;
-border-bottom:1px dashed #000;
-padding-bottom:10px;
-margin-bottom:10px;
+}
+
+/* CENTER */
+
+.center{
+text-align:center;
+}
+
+/* LINE */
+
+.line{
+border-top:1px dashed black;
+margin:8px 0;
 }
 
 /* TABLE */
 
-.bill-table{
+table{
 width:100%;
 border-collapse:collapse;
+margin-top:10px;
 font-size:11px;
 }
 
-.bill-table th{
-border-bottom:1px dashed #000;
+th{
+border-bottom:1px dashed black;
 padding-bottom:5px;
 }
 
-.bill-table td{
+td{
 padding-top:8px;
 text-align:center;
 }
 
 /* TOTAL */
 
-.total-area{
+.total{
 margin-top:10px;
-border-top:1px dashed #000;
+border-top:1px dashed black;
 padding-top:10px;
-font-size:13px;
 }
 
-.total-line{
+.total p{
 display:flex;
 justify-content:space-between;
-margin-bottom:6px;
-}
-
-.grand-total{
-font-size:16px;
-font-weight:bold;
+margin-top:5px;
 }
 
 /* THANK YOU */
@@ -168,34 +138,25 @@ font-weight:bold;
 .thankyou{
 margin-top:15px;
 text-align:center;
-border-top:1px dashed #000;
+border-top:1px dashed black;
 padding-top:10px;
-}
-
-.thankyou h1{
-font-size:18px;
-}
-
-.thankyou p{
-font-size:11px;
-margin-top:5px;
 }
 
 /* BUTTONS */
 
-.action-buttons{
+.buttons{
 margin-top:15px;
 display:flex;
 flex-direction:column;
 gap:10px;
 }
 
-.action-buttons button{
+.buttons button{
 padding:12px;
 border:none;
-border-radius:8px;
 font-size:14px;
 font-weight:bold;
+border-radius:6px;
 cursor:pointer;
 }
 
@@ -222,15 +183,16 @@ padding:0;
 display:none;
 }
 
+.buttons{
+display:none;
+}
+
 .bill{
 display:block;
 width:58mm;
-box-shadow:none;
+margin:0;
 padding:5px;
-}
-
-.action-buttons{
-display:none;
+box-shadow:none;
 }
 
 }
@@ -245,7 +207,7 @@ display:none;
 
 <h1 class="main-title">
 
-🐔 MINI BILL SYSTEM
+🐔 THERMAL BILL
 
 </h1>
 
@@ -273,16 +235,14 @@ Generate Bill
 
 <div class="bill" id="bill">
 
-<!-- TOP -->
+<div class="center">
 
-<div class="bill-top">
-
-<div class="shop-name">
+<h2>
 
 THREE BROTHERS  
 FRESH CHICKEN
 
-</div>
+</h2>
 
 <p>
 Malancha, Bosirhat Road
@@ -298,21 +258,19 @@ WhatsApp - 8637575166
 
 </div>
 
-<!-- CUSTOMER -->
-
-<div class="customer-section">
+<div class="line"></div>
 
 <p id="date"></p>
 
+<p id="time"></p>
+
 <p id="invoice"></p>
 
-<p id="showCustomer"></p>
+<p id="customer"></p>
 
-</div>
+<div class="line"></div>
 
-<!-- TABLE -->
-
-<table class="bill-table">
+<table>
 
 <thead>
 
@@ -320,9 +278,11 @@ WhatsApp - 8637575166
 
 <th>ITEM</th>
 
-<th>KG</th>
+<th>QTY</th>
 
-<th>TOTAL</th>
+<th>RATE</th>
+
+<th>AMOUNT</th>
 
 </tr>
 
@@ -336,7 +296,9 @@ WhatsApp - 8637575166
 
 <td id="showKG"></td>
 
-<td id="showTotal"></td>
+<td id="showRate"></td>
+
+<td id="showAmount"></td>
 
 </tr>
 
@@ -344,47 +306,47 @@ WhatsApp - 8637575166
 
 </table>
 
-<!-- TOTAL -->
+<div class="total">
 
-<div class="total-area">
-
-<div class="total-line">
+<p>
 
 <span>Subtotal</span>
 
 <span id="subtotal"></span>
 
+</p>
+
+<p>
+
+<span>CGST</span>
+
+<span>0%</span>
+
+</p>
+
+<p>
+
+<span>SGST</span>
+
+<span>0%</span>
+
+</p>
+
+<p>
+
+<b>NET AMOUNT</b>
+
+<b id="netAmount"></b>
+
+</p>
+
 </div>
-
-<div class="total-line">
-
-<span>Delivery</span>
-
-<span>₹0</span>
-
-</div>
-
-<div class="total-line grand-total">
-
-<span>TOTAL</span>
-
-<span id="grandTotal"></span>
-
-</div>
-
-</div>
-
-<!-- THANK YOU -->
 
 <div class="thankyou">
 
-<h1>
+<h3>
 ❤️ THANK YOU ❤️
-</h1>
-
-<p>
-Thank You For Shopping
-</p>
+</h3>
 
 <p>
 Visit Again 😈
@@ -396,7 +358,7 @@ Visit Again 😈
 
 <!-- BUTTONS -->
 
-<div class="action-buttons">
+<div class="buttons">
 
 <button class="print-btn" onclick="window.print()">
 
@@ -433,4 +395,94 @@ parseFloat(document.getElementById("productPrice").value);
 let total =
 kg * price;
 
-document.getElementById
+document.getElementById("bill").style.display =
+"block";
+
+/* DATE */
+
+let now =
+new Date();
+
+document.getElementById("date").innerHTML =
+"DATE : " + now.toLocaleDateString();
+
+document.getElementById("time").innerHTML =
+"TIME : " + now.toLocaleTimeString();
+
+document.getElementById("invoice").innerHTML =
+"BILL NO : #" + Math.floor(Math.random()*999999);
+
+document.getElementById("customer").innerHTML =
+"CUSTOMER : " + customer;
+
+/* SHOW */
+
+document.getElementById("showProduct").innerHTML =
+product;
+
+document.getElementById("showKG").innerHTML =
+kg + "KG";
+
+document.getElementById("showRate").innerHTML =
+"₹" + price;
+
+document.getElementById("showAmount").innerHTML =
+"₹" + total;
+
+document.getElementById("subtotal").innerHTML =
+"₹" + total;
+
+document.getElementById("netAmount").innerHTML =
+"₹" + total;
+
+/* SAVE */
+
+let bills =
+JSON.parse(localStorage.getItem("bills")) || [];
+
+bills.push({
+
+customer:customer,
+
+product:product,
+
+kg:kg,
+
+price:price,
+
+total:total
+
+});
+
+localStorage.setItem("bills",JSON.stringify(bills));
+
+}
+
+/* SAVE BILL */
+
+function saveBill(){
+
+let content =
+document.getElementById("bill").innerHTML;
+
+let blob =
+new Blob([content], {type:"text/html"});
+
+let link =
+document.createElement("a");
+
+link.href =
+URL.createObjectURL(blob);
+
+link.download =
+"ThreeBrothersThermalBill.html";
+
+link.click();
+
+}
+
+</script>
+
+</body>
+
+</html>
