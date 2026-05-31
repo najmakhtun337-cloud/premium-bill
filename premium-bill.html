@@ -1,5 +1,6 @@
 <!-- FILE NAME: premium-bill.html -->
-<!-- PROFESSIONAL THERMAL BILL 😈 -->
+<!-- THREE BROTHERS FRESH CHICKEN -->
+<!-- PROFESSIONAL THERMAL BILL SYSTEM 😈 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Thermal Bill</title>
+<title>Three Brothers Thermal Bill</title>
 
 <style>
 
@@ -26,10 +27,10 @@ background:#111;
 padding:10px;
 }
 
-/* MAIN BOX */
+/* MAIN */
 
 .main-box{
-max-width:380px;
+max-width:420px;
 margin:auto;
 background:#1b1b1b;
 padding:15px;
@@ -38,12 +39,12 @@ border-radius:10px;
 
 .main-title{
 text-align:center;
-color:gold;
 font-size:22px;
+color:gold;
 margin-bottom:15px;
 }
 
-/* INPUTS */
+/* INPUT */
 
 .input-grid{
 display:flex;
@@ -58,6 +59,7 @@ background:#2a2a2a;
 color:white;
 border-radius:6px;
 font-size:13px;
+outline:none;
 }
 
 /* BUTTON */
@@ -92,8 +94,6 @@ font-size:12px;
 .center{
 text-align:center;
 }
-
-/* LINE */
 
 .line{
 border-top:1px dashed black;
@@ -207,21 +207,51 @@ box-shadow:none;
 
 <h1 class="main-title">
 
-🐔 THERMAL BILL
+🐔 THERMAL BILL SYSTEM
 
 </h1>
 
-<!-- INPUT -->
+<!-- CUSTOMER -->
 
 <div class="input-grid">
 
 <input type="text" id="customerName" placeholder="Customer Name">
 
-<input type="text" id="productName" placeholder="Product Name">
+<!-- SKINLESS -->
 
-<input type="number" id="productKG" placeholder="Quantity KG">
+<input type="number" id="skinlessKG" placeholder="Skinless Chicken KG">
 
-<input type="number" id="productPrice" placeholder="Price Per KG">
+<input type="number" id="skinlessRateInput" placeholder="Skinless Chicken Rate">
+
+<!-- LIVE -->
+
+<input type="number" id="liveKG" placeholder="Live Chicken KG">
+
+<input type="number" id="liveRateInput" placeholder="Live Chicken Rate">
+
+<!-- DESI -->
+
+<input type="number" id="desiKG" placeholder="Desi Chicken KG">
+
+<input type="number" id="desiRateInput" placeholder="Desi Chicken Rate">
+
+<!-- BONELESS -->
+
+<input type="number" id="bonelessKG" placeholder="Boneless KG">
+
+<input type="number" id="bonelessRateInput" placeholder="Boneless Rate">
+
+<!-- LIVER -->
+
+<input type="number" id="liverKG" placeholder="Liver KG">
+
+<input type="number" id="liverRateInput" placeholder="Liver Rate">
+
+<!-- EGG -->
+
+<input type="number" id="eggQtyInput" placeholder="Egg Quantity">
+
+<input type="number" id="eggRateInput" placeholder="Egg Rate">
 
 </div>
 
@@ -292,13 +322,73 @@ WhatsApp - 8637575166
 
 <tr>
 
-<td id="showProduct"></td>
+<td>Skinless</td>
 
-<td id="showKG"></td>
+<td id="skinlessQty"></td>
 
-<td id="showRate"></td>
+<td id="skinlessRate"></td>
 
-<td id="showAmount"></td>
+<td id="skinlessAmount"></td>
+
+</tr>
+
+<tr>
+
+<td>Live</td>
+
+<td id="liveQty"></td>
+
+<td id="liveRate"></td>
+
+<td id="liveAmount"></td>
+
+</tr>
+
+<tr>
+
+<td>Desi</td>
+
+<td id="desiQty"></td>
+
+<td id="desiRate"></td>
+
+<td id="desiAmount"></td>
+
+</tr>
+
+<tr>
+
+<td>Boneless</td>
+
+<td id="bonelessQty"></td>
+
+<td id="bonelessRate"></td>
+
+<td id="bonelessAmount"></td>
+
+</tr>
+
+<tr>
+
+<td>Liver</td>
+
+<td id="liverQty"></td>
+
+<td id="liverRate"></td>
+
+<td id="liverAmount"></td>
+
+</tr>
+
+<tr>
+
+<td>Egg</td>
+
+<td id="eggQty"></td>
+
+<td id="eggRate"></td>
+
+<td id="eggAmount"></td>
 
 </tr>
 
@@ -380,20 +470,88 @@ Visit Again 😈
 
 function generateBill(){
 
+/* CUSTOMER */
+
 let customer =
 document.getElementById("customerName").value;
 
-let product =
-document.getElementById("productName").value;
+/* SKINLESS */
 
-let kg =
-parseFloat(document.getElementById("productKG").value);
+let skinlessKG =
+parseFloat(document.getElementById("skinlessKG").value) || 0;
 
-let price =
-parseFloat(document.getElementById("productPrice").value);
+let skinlessRate =
+parseFloat(document.getElementById("skinlessRateInput").value) || 0;
 
-let total =
-kg * price;
+let skinlessTotal =
+skinlessKG * skinlessRate;
+
+/* LIVE */
+
+let liveKG =
+parseFloat(document.getElementById("liveKG").value) || 0;
+
+let liveRate =
+parseFloat(document.getElementById("liveRateInput").value) || 0;
+
+let liveTotal =
+liveKG * liveRate;
+
+/* DESI */
+
+let desiKG =
+parseFloat(document.getElementById("desiKG").value) || 0;
+
+let desiRate =
+parseFloat(document.getElementById("desiRateInput").value) || 0;
+
+let desiTotal =
+desiKG * desiRate;
+
+/* BONELESS */
+
+let bonelessKG =
+parseFloat(document.getElementById("bonelessKG").value) || 0;
+
+let bonelessRate =
+parseFloat(document.getElementById("bonelessRateInput").value) || 0;
+
+let bonelessTotal =
+bonelessKG * bonelessRate;
+
+/* LIVER */
+
+let liverKG =
+parseFloat(document.getElementById("liverKG").value) || 0;
+
+let liverRate =
+parseFloat(document.getElementById("liverRateInput").value) || 0;
+
+let liverTotal =
+liverKG * liverRate;
+
+/* EGG */
+
+let eggQty =
+parseFloat(document.getElementById("eggQtyInput").value) || 0;
+
+let eggRate =
+parseFloat(document.getElementById("eggRateInput").value) || 0;
+
+let eggTotal =
+eggQty * eggRate;
+
+/* GRAND TOTAL */
+
+let grandTotal =
+skinlessTotal +
+liveTotal +
+desiTotal +
+bonelessTotal +
+liverTotal +
+eggTotal;
+
+/* SHOW BILL */
 
 document.getElementById("bill").style.display =
 "block";
@@ -415,25 +573,81 @@ document.getElementById("invoice").innerHTML =
 document.getElementById("customer").innerHTML =
 "CUSTOMER : " + customer;
 
-/* SHOW */
+/* SHOW DATA */
 
-document.getElementById("showProduct").innerHTML =
-product;
+/* SKINLESS */
 
-document.getElementById("showKG").innerHTML =
-kg + "KG";
+document.getElementById("skinlessQty").innerHTML =
+skinlessKG + "KG";
 
-document.getElementById("showRate").innerHTML =
-"₹" + price;
+document.getElementById("skinlessRate").innerHTML =
+"₹" + skinlessRate;
 
-document.getElementById("showAmount").innerHTML =
-"₹" + total;
+document.getElementById("skinlessAmount").innerHTML =
+"₹" + skinlessTotal;
+
+/* LIVE */
+
+document.getElementById("liveQty").innerHTML =
+liveKG + "KG";
+
+document.getElementById("liveRate").innerHTML =
+"₹" + liveRate;
+
+document.getElementById("liveAmount").innerHTML =
+"₹" + liveTotal;
+
+/* DESI */
+
+document.getElementById("desiQty").innerHTML =
+desiKG + "KG";
+
+document.getElementById("desiRate").innerHTML =
+"₹" + desiRate;
+
+document.getElementById("desiAmount").innerHTML =
+"₹" + desiTotal;
+
+/* BONELESS */
+
+document.getElementById("bonelessQty").innerHTML =
+bonelessKG + "KG";
+
+document.getElementById("bonelessRate").innerHTML =
+"₹" + bonelessRate;
+
+document.getElementById("bonelessAmount").innerHTML =
+"₹" + bonelessTotal;
+
+/* LIVER */
+
+document.getElementById("liverQty").innerHTML =
+liverKG + "KG";
+
+document.getElementById("liverRate").innerHTML =
+"₹" + liverRate;
+
+document.getElementById("liverAmount").innerHTML =
+"₹" + liverTotal;
+
+/* EGG */
+
+document.getElementById("eggQty").innerHTML =
+eggQty;
+
+document.getElementById("eggRate").innerHTML =
+"₹" + eggRate;
+
+document.getElementById("eggAmount").innerHTML =
+"₹" + eggTotal;
+
+/* TOTAL */
 
 document.getElementById("subtotal").innerHTML =
-"₹" + total;
+"₹" + grandTotal;
 
 document.getElementById("netAmount").innerHTML =
-"₹" + total;
+"₹" + grandTotal;
 
 /* SAVE */
 
@@ -444,13 +658,9 @@ bills.push({
 
 customer:customer,
 
-product:product,
+total:grandTotal,
 
-kg:kg,
-
-price:price,
-
-total:total
+date:now.toLocaleDateString()
 
 });
 
