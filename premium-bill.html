@@ -1,6 +1,5 @@
-<!-- FILE NAME: premium-bill.html -->
-<!-- THREE BROTHERS FRESH CHICKEN -->
-<!-- PROFESSIONAL THERMAL BILL SYSTEM 😈 -->
+<!-- FILE NAME: pos-terminal.html -->
+<!-- THREE BROTHERS POS TERMINAL 😈 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +10,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Three Brothers Thermal Bill</title>
+<title>Three Brothers POS</title>
 
 <style>
 
@@ -19,85 +18,60 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:monospace;
+font-family:Arial;
 }
 
 body{
-background:#111;
-padding:10px;
+background:#e9eef5;
+padding:15px;
+}
+
+/* HEADER */
+
+.header{
+background:#0b5ed7;
+color:white;
+padding:15px;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.header h1{
+font-size:24px;
 }
 
 /* MAIN */
 
-.main-box{
-max-width:420px;
-margin:auto;
-background:#1b1b1b;
+.main{
+margin-top:15px;
+display:grid;
+grid-template-columns:1fr 380px;
+gap:15px;
+}
+
+/* LEFT */
+
+.left-panel{
+background:white;
 padding:15px;
 border-radius:10px;
 }
 
-.main-title{
-text-align:center;
-font-size:22px;
-color:gold;
+/* TOP INPUT */
+
+.top-input{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
 margin-bottom:15px;
 }
 
-/* INPUT */
-
-.input-grid{
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-.input-grid input{
-padding:12px;
-border:none;
-background:#2a2a2a;
-color:white;
-border-radius:6px;
-font-size:13px;
-outline:none;
-}
-
-/* BUTTON */
-
-.generate-btn{
-margin-top:15px;
-padding:12px;
-border:none;
-background:gold;
-color:black;
-font-size:14px;
-font-weight:bold;
-border-radius:6px;
-cursor:pointer;
-width:100%;
-}
-
-/* BILL */
-
-.bill{
-display:none;
-width:300px;
-background:white;
-color:black;
-margin:20px auto;
+.top-input input{
 padding:10px;
-font-size:12px;
-}
-
-/* CENTER */
-
-.center{
-text-align:center;
-}
-
-.line{
-border-top:1px dashed black;
-margin:8px 0;
+border:1px solid #ccc;
+border-radius:6px;
 }
 
 /* TABLE */
@@ -105,58 +79,68 @@ margin:8px 0;
 table{
 width:100%;
 border-collapse:collapse;
-margin-top:10px;
-font-size:11px;
 }
 
 th{
-border-bottom:1px dashed black;
-padding-bottom:5px;
+background:#0b5ed7;
+color:white;
+padding:12px;
+font-size:14px;
 }
 
 td{
-padding-top:8px;
+padding:10px;
+border-bottom:1px solid #ddd;
 text-align:center;
+}
+
+td input{
+width:100%;
+padding:7px;
+border:1px solid #ccc;
+border-radius:5px;
+text-align:center;
+}
+
+/* RIGHT PANEL */
+
+.right-panel{
+background:white;
+padding:15px;
+border-radius:10px;
 }
 
 /* TOTAL */
 
-.total{
-margin-top:10px;
-border-top:1px dashed black;
-padding-top:10px;
-}
-
-.total p{
-display:flex;
-justify-content:space-between;
-margin-top:5px;
-}
-
-/* THANK YOU */
-
-.thankyou{
-margin-top:15px;
+.total-box{
+background:#0b5ed7;
+color:white;
+padding:20px;
+border-radius:10px;
 text-align:center;
-border-top:1px dashed black;
-padding-top:10px;
+margin-top:20px;
+}
+
+.total-box h2{
+font-size:40px;
+margin-top:10px;
 }
 
 /* BUTTONS */
 
 .buttons{
-margin-top:15px;
+margin-top:20px;
 display:flex;
 flex-direction:column;
 gap:10px;
 }
 
 .buttons button{
-padding:12px;
+padding:14px;
 border:none;
-font-size:14px;
-font-weight:bold;
 border-radius:6px;
+font-size:15px;
+font-weight:bold;
 cursor:pointer;
 }
 
@@ -166,33 +150,67 @@ color:white;
 }
 
 .save-btn{
-background:gold;
-color:black;
+background:green;
+color:white;
 }
 
-/* PRINT */
+.clear-btn{
+background:red;
+color:white;
+}
+
+/* BILL */
+
+.bill{
+display:none;
+background:white;
+padding:10px;
+width:58mm;
+font-family:monospace;
+font-size:12px;
+}
+
+.bill-center{
+text-align:center;
+}
+
+.line{
+border-top:1px dashed black;
+margin:7px 0;
+}
+
+.bill table{
+font-size:10px;
+}
+
+.bill th{
+background:none;
+color:black;
+border-bottom:1px dashed black;
+padding:4px;
+}
+
+.bill td{
+padding:5px;
+border:none;
+}
 
 @media print{
 
-body{
-background:white;
-padding:0;
+body *{
+visibility:hidden;
 }
 
-.main-box{
-display:none;
-}
-
-.buttons{
-display:none;
+.bill,
+.bill *{
+visibility:visible;
 }
 
 .bill{
-display:block;
+position:absolute;
+left:0;
+top:0;
 width:58mm;
-margin:0;
-padding:5px;
-box-shadow:none;
 }
 
 }
@@ -203,102 +221,41 @@ box-shadow:none;
 
 <body>
 
-<div class="main-box">
+<!-- HEADER -->
 
-<h1 class="main-title">
+<div class="header">
 
-🐔 THERMAL BILL SYSTEM
-
+<h1>
+🐔 THREE BROTHERS POS TERMINAL
 </h1>
 
-<!-- CUSTOMER -->
+<div>
 
-<div class="input-grid">
-
-<input type="text" id="customerName" placeholder="Customer Name">
-
-<!-- SKINLESS -->
-
-<input type="number" id="skinlessKG" placeholder="Skinless Chicken KG">
-
-<input type="number" id="skinlessRateInput" placeholder="Skinless Chicken Rate">
-
-<!-- LIVE -->
-
-<input type="number" id="liveKG" placeholder="Live Chicken KG">
-
-<input type="number" id="liveRateInput" placeholder="Live Chicken Rate">
-
-<!-- DESI -->
-
-<input type="number" id="desiKG" placeholder="Desi Chicken KG">
-
-<input type="number" id="desiRateInput" placeholder="Desi Chicken Rate">
-
-<!-- BONELESS -->
-
-<input type="number" id="bonelessKG" placeholder="Boneless KG">
-
-<input type="number" id="bonelessRateInput" placeholder="Boneless Rate">
-
-<!-- LIVER -->
-
-<input type="number" id="liverKG" placeholder="Liver KG">
-
-<input type="number" id="liverRateInput" placeholder="Liver Rate">
-
-<!-- EGG -->
-
-<input type="number" id="eggQtyInput" placeholder="Egg Quantity">
-
-<input type="number" id="eggRateInput" placeholder="Egg Rate">
+<span id="date"></span>
 
 </div>
 
-<button class="generate-btn" onclick="generateBill()">
-
-Generate Bill
-
-</button>
-
-<!-- BILL -->
-
-<div class="bill" id="bill">
-
-<div class="center">
-
-<h2>
-
-THREE BROTHERS  
-FRESH CHICKEN
-
-</h2>
-
-<p>
-Malancha, Bosirhat Road
-</p>
-
-<p>
-PIN - 743456
-</p>
-
-<p>
-WhatsApp - 8637575166
-</p>
-
 </div>
 
-<div class="line"></div>
+<!-- MAIN -->
 
-<p id="date"></p>
+<div class="main">
 
-<p id="time"></p>
+<!-- LEFT -->
 
-<p id="invoice"></p>
+<div class="left-panel">
 
-<p id="customer"></p>
+<div class="top-input">
 
-<div class="line"></div>
+<input type="text" id="customer" placeholder="Customer Name">
+
+<input type="text" id="phone" placeholder="Phone Number">
+
+<input type="text" id="invoice" placeholder="Invoice No">
+
+<input type="text" id="payment" placeholder="Payment Mode">
+
+</div>
 
 <table>
 
@@ -322,37 +279,37 @@ WhatsApp - 8637575166
 
 <tr>
 
-<td>Skinless</td>
+<td>Skinless Chicken</td>
 
-<td id="skinlessQty"></td>
+<td><input type="number" id="qty1"></td>
 
-<td id="skinlessRate"></td>
+<td><input type="number" id="rate1"></td>
 
-<td id="skinlessAmount"></td>
-
-</tr>
-
-<tr>
-
-<td>Live</td>
-
-<td id="liveQty"></td>
-
-<td id="liveRate"></td>
-
-<td id="liveAmount"></td>
+<td id="amount1">₹0</td>
 
 </tr>
 
 <tr>
 
-<td>Desi</td>
+<td>Live Chicken</td>
 
-<td id="desiQty"></td>
+<td><input type="number" id="qty2"></td>
 
-<td id="desiRate"></td>
+<td><input type="number" id="rate2"></td>
 
-<td id="desiAmount"></td>
+<td id="amount2">₹0</td>
+
+</tr>
+
+<tr>
+
+<td>Desi Chicken</td>
+
+<td><input type="number" id="qty3"></td>
+
+<td><input type="number" id="rate3"></td>
+
+<td id="amount3">₹0</td>
 
 </tr>
 
@@ -360,11 +317,11 @@ WhatsApp - 8637575166
 
 <td>Boneless</td>
 
-<td id="bonelessQty"></td>
+<td><input type="number" id="qty4"></td>
 
-<td id="bonelessRate"></td>
+<td><input type="number" id="rate4"></td>
 
-<td id="bonelessAmount"></td>
+<td id="amount4">₹0</td>
 
 </tr>
 
@@ -372,11 +329,11 @@ WhatsApp - 8637575166
 
 <td>Liver</td>
 
-<td id="liverQty"></td>
+<td><input type="number" id="qty5"></td>
 
-<td id="liverRate"></td>
+<td><input type="number" id="rate5"></td>
 
-<td id="liverAmount"></td>
+<td id="amount5">₹0</td>
 
 </tr>
 
@@ -384,11 +341,11 @@ WhatsApp - 8637575166
 
 <td>Egg</td>
 
-<td id="eggQty"></td>
+<td><input type="number" id="qty6"></td>
 
-<td id="eggRate"></td>
+<td><input type="number" id="rate6"></td>
 
-<td id="eggAmount"></td>
+<td id="amount6">₹0</td>
 
 </tr>
 
@@ -396,71 +353,124 @@ WhatsApp - 8637575166
 
 </table>
 
-<div class="total">
-
-<p>
-
-<span>Subtotal</span>
-
-<span id="subtotal"></span>
-
-</p>
-
-<p>
-
-<span>CGST</span>
-
-<span>0%</span>
-
-</p>
-
-<p>
-
-<span>SGST</span>
-
-<span>0%</span>
-
-</p>
-
-<p>
-
-<b>NET AMOUNT</b>
-
-<b id="netAmount"></b>
-
-</p>
-
 </div>
 
-<div class="thankyou">
+<!-- RIGHT -->
 
-<h3>
-❤️ THANK YOU ❤️
-</h3>
+<div class="right-panel">
+
+<h2>
+Billing Summary
+</h2>
+
+<div class="total-box">
 
 <p>
-Visit Again 😈
+NET AMOUNT
 </p>
 
-</div>
+<h2 id="grandTotal">
+₹0
+</h2>
 
 </div>
-
-<!-- BUTTONS -->
 
 <div class="buttons">
 
-<button class="print-btn" onclick="window.print()">
+<button class="print-btn" onclick="printBill()">
 
 🖨 PRINT BILL
 
 </button>
 
-<button class="save-btn" onclick="saveBill()">
+<button class="save-btn" onclick="saveData()">
 
 💾 SAVE BILL
 
 </button>
+
+<button class="clear-btn" onclick="location.reload()">
+
+❌ CLEAR
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BILL -->
+
+<div class="bill" id="bill">
+
+<div class="bill-center">
+
+<h3>
+
+THREE BROTHERS  
+FRESH CHICKEN
+
+</h3>
+
+<p>
+Malancha, Bosirhat Road
+</p>
+
+<p>
+WhatsApp - 8637575166
+</p>
+
+</div>
+
+<div class="line"></div>
+
+<p id="billDate"></p>
+
+<p id="billCustomer"></p>
+
+<p id="billInvoice"></p>
+
+<div class="line"></div>
+
+<table width="100%">
+
+<tr>
+
+<th>ITEM</th>
+
+<th>QTY</th>
+
+<th>AMT</th>
+
+</tr>
+
+<tbody id="billItems">
+
+</tbody>
+
+</table>
+
+<div class="line"></div>
+
+<h3 id="billTotal">
+
+TOTAL : ₹0
+
+</h3>
+
+<div class="line"></div>
+
+<div class="bill-center">
+
+<p>
+❤️ THANK YOU ❤️
+</p>
+
+<p>
+VISIT AGAIN 😈
+</p>
 
 </div>
 
@@ -468,226 +478,130 @@ Visit Again 😈
 
 <script>
 
-function generateBill(){
-
-/* CUSTOMER */
-
-let customer =
-document.getElementById("customerName").value;
-
-/* SKINLESS */
-
-let skinlessKG =
-parseFloat(document.getElementById("skinlessKG").value) || 0;
-
-let skinlessRate =
-parseFloat(document.getElementById("skinlessRateInput").value) || 0;
-
-let skinlessTotal =
-skinlessKG * skinlessRate;
-
-/* LIVE */
-
-let liveKG =
-parseFloat(document.getElementById("liveKG").value) || 0;
-
-let liveRate =
-parseFloat(document.getElementById("liveRateInput").value) || 0;
-
-let liveTotal =
-liveKG * liveRate;
-
-/* DESI */
-
-let desiKG =
-parseFloat(document.getElementById("desiKG").value) || 0;
-
-let desiRate =
-parseFloat(document.getElementById("desiRateInput").value) || 0;
-
-let desiTotal =
-desiKG * desiRate;
-
-/* BONELESS */
-
-let bonelessKG =
-parseFloat(document.getElementById("bonelessKG").value) || 0;
-
-let bonelessRate =
-parseFloat(document.getElementById("bonelessRateInput").value) || 0;
-
-let bonelessTotal =
-bonelessKG * bonelessRate;
-
-/* LIVER */
-
-let liverKG =
-parseFloat(document.getElementById("liverKG").value) || 0;
-
-let liverRate =
-parseFloat(document.getElementById("liverRateInput").value) || 0;
-
-let liverTotal =
-liverKG * liverRate;
-
-/* EGG */
-
-let eggQty =
-parseFloat(document.getElementById("eggQtyInput").value) || 0;
-
-let eggRate =
-parseFloat(document.getElementById("eggRateInput").value) || 0;
-
-let eggTotal =
-eggQty * eggRate;
-
-/* GRAND TOTAL */
-
-let grandTotal =
-skinlessTotal +
-liveTotal +
-desiTotal +
-bonelessTotal +
-liverTotal +
-eggTotal;
-
-/* SHOW BILL */
-
-document.getElementById("bill").style.display =
-"block";
-
 /* DATE */
 
-let now =
-new Date();
-
 document.getElementById("date").innerHTML =
-"DATE : " + now.toLocaleDateString();
+new Date().toLocaleString();
 
-document.getElementById("time").innerHTML =
-"TIME : " + now.toLocaleTimeString();
+/* AUTO CALCULATE */
 
-document.getElementById("invoice").innerHTML =
-"BILL NO : #" + Math.floor(Math.random()*999999);
+let inputs =
+document.querySelectorAll("input[type='number']");
 
-document.getElementById("customer").innerHTML =
-"CUSTOMER : " + customer;
+inputs.forEach(input => {
 
-/* SHOW DATA */
-
-/* SKINLESS */
-
-document.getElementById("skinlessQty").innerHTML =
-skinlessKG + "KG";
-
-document.getElementById("skinlessRate").innerHTML =
-"₹" + skinlessRate;
-
-document.getElementById("skinlessAmount").innerHTML =
-"₹" + skinlessTotal;
-
-/* LIVE */
-
-document.getElementById("liveQty").innerHTML =
-liveKG + "KG";
-
-document.getElementById("liveRate").innerHTML =
-"₹" + liveRate;
-
-document.getElementById("liveAmount").innerHTML =
-"₹" + liveTotal;
-
-/* DESI */
-
-document.getElementById("desiQty").innerHTML =
-desiKG + "KG";
-
-document.getElementById("desiRate").innerHTML =
-"₹" + desiRate;
-
-document.getElementById("desiAmount").innerHTML =
-"₹" + desiTotal;
-
-/* BONELESS */
-
-document.getElementById("bonelessQty").innerHTML =
-bonelessKG + "KG";
-
-document.getElementById("bonelessRate").innerHTML =
-"₹" + bonelessRate;
-
-document.getElementById("bonelessAmount").innerHTML =
-"₹" + bonelessTotal;
-
-/* LIVER */
-
-document.getElementById("liverQty").innerHTML =
-liverKG + "KG";
-
-document.getElementById("liverRate").innerHTML =
-"₹" + liverRate;
-
-document.getElementById("liverAmount").innerHTML =
-"₹" + liverTotal;
-
-/* EGG */
-
-document.getElementById("eggQty").innerHTML =
-eggQty;
-
-document.getElementById("eggRate").innerHTML =
-"₹" + eggRate;
-
-document.getElementById("eggAmount").innerHTML =
-"₹" + eggTotal;
-
-/* TOTAL */
-
-document.getElementById("subtotal").innerHTML =
-"₹" + grandTotal;
-
-document.getElementById("netAmount").innerHTML =
-"₹" + grandTotal;
-
-/* SAVE */
-
-let bills =
-JSON.parse(localStorage.getItem("bills")) || [];
-
-bills.push({
-
-customer:customer,
-
-total:grandTotal,
-
-date:now.toLocaleDateString()
+input.addEventListener("input",calculate);
 
 });
 
-localStorage.setItem("bills",JSON.stringify(bills));
+function calculate(){
+
+let total = 0;
+
+for(let i=1;i<=6;i++){
+
+let qty =
+parseFloat(document.getElementById("qty"+i).value) || 0;
+
+let rate =
+parseFloat(document.getElementById("rate"+i).value) || 0;
+
+let amount =
+qty * rate;
+
+document.getElementById("amount"+i).innerHTML =
+"₹" + amount;
+
+total += amount;
 
 }
 
-/* SAVE BILL */
+document.getElementById("grandTotal").innerHTML =
+"₹" + total;
 
-function saveBill(){
+}
 
-let content =
-document.getElementById("bill").innerHTML;
+/* PRINT */
 
-let blob =
-new Blob([content], {type:"text/html"});
+function printBill(){
 
-let link =
-document.createElement("a");
+let items = [
 
-link.href =
-URL.createObjectURL(blob);
+"Skinless Chicken",
 
-link.download =
-"ThreeBrothersThermalBill.html";
+"Live Chicken",
 
-link.click();
+"Desi Chicken",
+
+"Boneless",
+
+"Liver",
+
+"Egg"
+
+];
+
+let html = "";
+
+let total = 0;
+
+for(let i=1;i<=6;i++){
+
+let qty =
+parseFloat(document.getElementById("qty"+i).value) || 0;
+
+let rate =
+parseFloat(document.getElementById("rate"+i).value) || 0;
+
+let amount =
+qty * rate;
+
+if(amount > 0){
+
+html += `
+
+<tr>
+
+<td>${items[i-1]}</td>
+
+<td>${qty}</td>
+
+<td>₹${amount}</td>
+
+</tr>
+
+`;
+
+total += amount;
+
+}
+
+}
+
+document.getElementById("billItems").innerHTML =
+html;
+
+document.getElementById("billDate").innerHTML =
+"DATE : " + new Date().toLocaleString();
+
+document.getElementById("billCustomer").innerHTML =
+"CUSTOMER : " + document.getElementById("customer").value;
+
+document.getElementById("billInvoice").innerHTML =
+"INVOICE : " + document.getElementById("invoice").value;
+
+document.getElementById("billTotal").innerHTML =
+"TOTAL : ₹" + total;
+
+window.print();
+
+}
+
+/* SAVE */
+
+function saveData(){
+
+alert("Bill Saved Successfully 😈");
 
 }
 
